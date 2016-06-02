@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602102254) do
+ActiveRecord::Schema.define(version: 20160602111236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cut_offs", force: :cascade do |t|
+    t.string  "college_name",                             null: false
+    t.integer "college_code",                             null: false
+    t.string  "branch_name",                              null: false
+    t.integer "branch_code",                              null: false
+    t.string  "category_name",                            null: false
+    t.integer "rank",                                     null: false
+    t.decimal "composite_score", precision: 17, scale: 2, null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",        null: false
