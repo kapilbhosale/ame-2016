@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+# gem 'rake', '11.1.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
@@ -29,7 +29,7 @@ gem 'spring',        group: :development
 # Icon library
 gem 'font-awesome-sass', '>= 4.4.0'
 
-
+gem 'devise'
 # Pagination
 gem 'kaminari'
 
