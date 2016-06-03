@@ -27,8 +27,22 @@ ActiveRecord::Schema.define(version: 20160602111236) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "first_name",        null: false
+    t.string   "father_name"
+    t.string   "surname",           null: false
+    t.string   "mother_name",       null: false
+    t.datetime "date_of_birth",     null: false
+    t.integer  "rank",              null: false
+    t.decimal  "composite_score",   null: false
+    t.string   "category",          null: false
+    t.string   "home_university"
+    t.string   "contact_no"
+    t.string   "father_contact_no"
+    t.string   "email"
+    t.text     "address"
+    t.string   "cet_exam_number"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "users", force: :cascade do |t|
