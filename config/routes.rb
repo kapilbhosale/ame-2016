@@ -18,7 +18,9 @@ Rails.application.routes.draw do
       post '/students' => 'students#show'
       post '/search_students' => 'students#show'
 
-      resource :analysis
+      get 'analysis/new/:student_id' => 'analyses#new'
+      post 'perform_analysis' => 'analyses#perform_analysis'
+      # resource :analysis
     end
   end
 

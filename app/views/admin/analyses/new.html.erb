@@ -1,1 +1,49 @@
-<p>Analysis dashboard</p>
+<%= link_to "Students List", "/admin/students" %>
+
+
+<p xmlns="http://www.w3.org/1999/html"> Student name : <%= @student.profile.full_name%> </p>
+<p> Category : <%= @student.profile.category%> </p>
+<p> State Rank : <%= @student.profile.rank%> </p>
+<p> Composite Score : <%= @student.profile.composite_score%> </p>
+<p> Gender : <%= @student.profile.gender%> </p>
+<p> Contact no : <%= @student.profile.contact_no%> </p>
+<p> Parent Contact no : <%= @student.profile.father_contact_no%> </p>
+
+
+<%= form_tag(admin_perform_analysis_path, method: :post) do %>
+  <div style="float: right">
+    <button type="submit" class="btn btn-primary"> Analyze </button>
+  </div>
+
+  no of options above your rank
+  <input type="number" name="greater_options" value="40" >
+<br>
+  no of options below your rank
+  <input type="number" name="lesser_options" value="60" >
+<br>
+  <input type="hidden" name="student_id" value="<%= @student.id %>" >
+
+  <div class="rounded_div float_left", style="width: 40%">
+  <% @branches.each do |branch| %>
+    <label>
+      </label><input id="branch" name="branch[]" type="checkbox" value="<%= branch.branch_name %>" />
+      <%= branch.branch_name %>
+    </label>
+    <br>
+  <% end %>
+  </div>
+
+  <div class="rounded_div float_right", style="width: 40%">
+    <% @regions.each do |region| %>
+      <label>
+      </label><input id="region" name="region[]" type="checkbox" value="<%= region %>" />
+      <%= region %>
+      </label>
+      <br>
+    <% end %>
+  </div>
+
+<% end %>
+
+
+

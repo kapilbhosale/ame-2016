@@ -1,3 +1,21 @@
 // Place all the styles related to the admin/analyses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.rounded_div {
+  border: 2px solid #a1a1a1;
+  padding: 10px 40px;
+  background: #dddddd;
+  border-radius: 25px;
+}
+
+.float_left {
+  float: left;
+}
+
+.float_right {
+  float: right;
+}
+
+

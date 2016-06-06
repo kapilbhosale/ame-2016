@@ -29,4 +29,9 @@
 
 class Profile < ActiveRecord::Base
   belongs_to :student, class_name: "User"
+
+
+  def full_name
+    "#{self.first_name} #{self.father_name} #{self.surname}"
+  end
 end

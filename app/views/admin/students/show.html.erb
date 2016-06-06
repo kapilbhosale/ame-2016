@@ -32,7 +32,7 @@
         <td> <%= student.profile.composite_score %></td>
         <td> <%= student.profile.contact_no %></td>
         <td> <%= student.email %></td>
-        <td> <%= link_to "Analyze", new_admin_analysis_path  %> </td>
+        <td> <%= link_to "Analyze", "analysis/new/#{student.id}" %> </td>
       </tr>
     <% end %>
 
