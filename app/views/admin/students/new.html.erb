@@ -1,52 +1,81 @@
-<%= form_tag("/admin/students", method: :post) do %>
-  Student first name :
-  <input type="text", name="first_name" > <br>
 
-  father name :
-  <input type="text", name="father_name" > <br>
+<div style="width: 40%" class="container -border">
+  <h4 style="text-align: center"> Student Registration form </h4>
+  <%= form_tag("/admin/students", method: :post) do %>
+    <div class="form-group">
+      <input type="text", name="first_name" class="form-control" required="required" placeholder="First name" >
+    </div>
 
-  Surname :
-  <input type="text", name="surname" > <br>
+    <div class="form-group">
+      <input type="text", name="father_name" class="form-control" placeholder="Father's name" >
+    </div>
 
-  Mother's name :
-  <input type="text", name="mother_name" > <br>
+    <div class="form-group">
+      <input type="text", name="surname" class="form-control" required="required" placeholder="Surname" >
+    </div>
 
-  Gender : male
-  <input type = "radio" id = "gender" name = "gender"
-         value = "male" checked = "checked" />
-  female
-  <input type = "radio" id = "gender" name = "gender"
-         value = "female" /> <br>
+    <div class="form-group">
+      <input type="text", name="mother_name" class="form-control" placeholder="Mother's name" >
+    </div>
 
 
-  Date of Birth :
-  <input type="date", name="date_of_birth" > <br>
+    Gender :
+    <div class="radio-inline form-group">
+      <label><input type="radio" id = "gender" name = "gender" value = "male" checked = "checked" >Male</label>
+    </div>
+    <div class="radio-inline">
+      <label><input type="radio" id = "gender" name = "gender" value = "female"  >Female</label>
+    </div>
 
-  Cet general Rank :
-  <input type="number", name="rank" > <br>
+    <div class="form-group">
+      Date of Birth :
+      <input type="date", name="date_of_birth" class="form-control"  required="required" placeholder="Date of Birth">
+    </div>
 
-  Composite score
-  <input type="number", name="composite_score" > <br>
+    <div class="form-group">
+      <!--Cet general Rank :-->
+      <input type="number", name="rank" class="form-control"  required="required" placeholder="Cet general Rank">
+    </div>
 
-  Category :
-  <%= select_tag 'category', options_for_select(@categories) %> <br>
+    <div class="form-group">
+      <!--Composite score-->
+      <input type="number", name="composite_score" class="form-control" required="required" placeholder="Composite score">
+    </div>
 
-  Student Contact no :
-  <input type="number", name="contact_no" > <br>
+    <div class="form-group">
+      Category :
+      <%= select_tag 'category', options_for_select(@categories), class: "form-control" %>
+    </div>
 
-  Parent Contact no :
-  <input type="number", name="father_contact_no" > <br>
+    <div class="form-group">
+      <!--Student Contact no :-->
+      <input type="number", name="contact_no" class="form-control" required="required" placeholder="contact no" >
+    </div>
 
-  Student email :
-  <input type="email", name="email" > <br>
+    <div class="form-group">
+      <!--form-groupParent Contact no :-->
+      <input type="number", name="father_contact_no" class="form-control" placeholder="father contact no">
+    </div>
 
-  Address :
-  <input type="text", name="address" > <br>
+    <div class="form-group">
+      <!--Student email :-->
+      <input type="email", name="email" class="form-control" required="required" placeholder="email">
+    </div>
 
-  Cet Exam no :
-  <input type="text", name="cet_exam_number" > <br>
+    <div class="form-group">
+      Address :
+      <textarea name="address" class="form-control" placeholder="address" rows="3"> </textarea>
+    </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
-<% end %>
+    <div class="form-group">
+      <!--Cet Exam no :-->
+      <input type="text", name="cet_exam_number" class="form-control"  placeholder="cet_exam_number">
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  <% end %>
+</div>
 
 

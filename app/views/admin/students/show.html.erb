@@ -1,10 +1,11 @@
 <div class="container">
   <h2>Available Students</h2>
 
-  <%= form_tag("search_students", method: :post) do %>
-    search by name :
-    <input type="text", name="search_string" > &nbsp;
-    <button type="submit" class="btn btn-primary">Submit</button>
+  <%= form_tag("search_students", method: :post, class: "form-inline") do %>
+    <div class="pull-right" style="padding: 20px">
+    <input type="text", name="search_string", class="form-control" placeholder="Search by Name"> &nbsp;
+    <button type="submit" class="btn btn-warning">Submit</button>
+    </div>
   <% end %>
 
   <table class="table table-hover table-bordered table-striped">

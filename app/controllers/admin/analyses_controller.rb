@@ -11,7 +11,7 @@ class Admin::AnalysesController < ApplicationController
 
   def perform_analysis
     @preferences = []
-    student = Student.find_by(id: params[:student_id])
+    @student = Student.find_by(id: params[:student_id])
 
     selected_regions = params[:region].map(&:downcase) if params[:region].present?
     selected_college_codes = RegionCollege.where(region_name: selected_regions).pluck(:college_code)
@@ -22,18 +22,22 @@ class Admin::AnalysesController < ApplicationController
 
     selected_branches =  params[:branch]
     if selected_branches.present?
-      raw_preferences = raw_preferences.where(branch_name: selected_branches)
+      if raw_preferences.present?
+        raw_preferences = raw_preferences.where(branch_name: selected_branches)
+      else
+        raw_preferences = CutOff.where(branch_name: selected_branches)
+      end
     end
 
     raw_preferences = CutOff.all if raw_preferences.blank?
 
-    category = student.profile.category
-    rank = student.profile.rank
+    category = @student.profile.category
+    rank = @student.profile.rank
 
     available_categories = []
 
     unless ['PHC','DEF'].include?(category)
-      category = student.profile.gender == 0 ? "G" + category : "L" + category
+      category = @student.profile.gender == 0 ? "G" + category : "L" + category
     end
 
 

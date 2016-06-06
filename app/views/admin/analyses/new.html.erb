@@ -21,7 +21,7 @@
         </li>
         <li>
           <span class="li_prop">Gender</span>
-          <span class="li_val"><%= @student.profile.gender %></span>
+          <span class="li_val"><%= @student.profile.gender == 0 ? 'Male' : 'Female' %></span>
         </li>
         <li>
           <span class="li_prop"> Contact no</span>

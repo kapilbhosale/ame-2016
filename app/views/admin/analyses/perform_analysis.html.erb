@@ -1,7 +1,52 @@
 
 <div class="container">
-  <h2>Available Choices</h2>
-  <div class="link_analysis"> <%= link_to "Back to analysis", :back %> </div>
+  <h3 style="text-align: center">Available Choices</h3>
+  <div class="clearfix" style="text-align: center"> <p> Admission Made Easy, Softwares. 9403150453.</p></div>
+
+  <div class="row" style="padding-bottom: 20px; padding-left: 20px;">
+    <div class="col-sm-4">
+      <div>
+        <table style="padding-bottom: 50px">
+          <tr>
+            <td> <b> Name : </b> </td>
+            <td style="padding-left: 10px"> <%= @student.profile.full_name %> </td>
+          </tr>
+          <tr>
+            <td> <b> rank : </b> </td>
+            <td style="padding-left: 10px"> <%= @student.profile.rank %> </td>
+          </tr>
+          <tr>
+            <td> <b> Composite Score : </b> </td>
+            <td style="padding-left: 10px"> <%= @student.profile.composite_score %> </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div>
+        <table>
+          <tr>
+            <td> <b> Category : </b> </td>
+            <td style="padding-left: 10px"> <%= @student.profile.category %> </td>
+          </tr>
+          <tr>
+            <td> <b> Gender : </b> </td>
+            <td style="padding-left: 10px"> <%= @student.profile.gender == 0 ? 'Male' : 'Female' %> </td>
+          </tr>
+
+        </table>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="link_analysis pull-right">
+        <%= link_to "Back to analysis", :back %>
+        &nbsp;&nbsp;&nbsp;
+        <button onclick="myFunction()" class="btn btn-success"> &nbsp; Print &nbsp; </button>
+      </div>
+    </div>
+  </div>
 
   <table class="table table-hover table-bordered table-striped">
     <thead>
@@ -32,3 +77,9 @@
     </tbody>
   </table>
 </div>
+
+<script>
+  function myFunction() {
+    window.print();
+  }
+</script>
