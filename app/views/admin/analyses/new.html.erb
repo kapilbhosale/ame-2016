@@ -1,32 +1,69 @@
-<%= link_to "Students List", "/admin/students" %>
+<%= form_tag(admin_perform_analysis_path, method: :post, class: 'form_analysis form-horizontal clearfix') do %>
 
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4">
+      <ul class="ul_prop_val">
+        <li>
+          <span class="li_prop">Student name</span>
+          <span class="li_val"><%= @student.profile.full_name %></span>
+        </li>
+        <li>
+          <span class="li_prop">Category</span>
+          <span class="li_val"><%= @student.profile.category %></span>
+        </li>
+        <li>
+          <span class="li_prop">State Rank</span>
+          <span class="li_val"><%= @student.profile.rank %></span>
+        </li>
+        <li>
+          <span class="li_prop">Composite Score</span>
+          <span class="li_val"><%= @student.profile.composite_score %></span>
+        </li>
+        <li>
+          <span class="li_prop">Gender</span>
+          <span class="li_val"><%= @student.profile.gender %></span>
+        </li>
+        <li>
+          <span class="li_prop"> Contact no</span>
+          <span class="li_val"><%= @student.profile.contact_no %> </span>
+        </li>
+        <li>
+          <span class="li_prop"> Parent Contact no</span>
+          <span class="li_val"><%= @student.profile.father_contact_no %></span>
+        </li>
+      </ul>
+    </div>
 
-<p xmlns="http://www.w3.org/1999/html"> Student name : <%= @student.profile.full_name%> </p>
-<p> Category : <%= @student.profile.category%> </p>
-<p> State Rank : <%= @student.profile.rank%> </p>
-<p> Composite Score : <%= @student.profile.composite_score%> </p>
-<p> Gender : <%= @student.profile.gender%> </p>
-<p> Contact no : <%= @student.profile.contact_no%> </p>
-<p> Parent Contact no : <%= @student.profile.father_contact_no%> </p>
+    <div class="col-lg-4 col-md-4 col-sm-4">
+      <div class="form-group">
+        <label>No. of options above your rank</label>
+        <div class="number_input_wrap">
+          <input type="number" name="greater_options" value="40" class="form-control">
+        </div>
+      </div>
 
+      <div class="form-group">
+        <label>No. of options below your rank</label>
+        <div class="number_input_wrap">
+          <input type="number" name="lesser_options" value="60" class="form-control">
+        </div>
+      </div>
+    </div>
 
-<%= form_tag(admin_perform_analysis_path, method: :post, class: 'form_analysis clearfix') do %>
+  </div>
+
   <div style="float: right">
     <button type="submit" class="btn btn-primary"> Analyze </button>
   </div>
 
-  no of options above your rank
-  <input type="number" name="greater_options" value="40" >
-  <br>
-  no of options below your rank
-  <input type="number" name="lesser_options" value="60" >
-  <br>
+  <div class="col-lg-12"> </div>
+
   <input type="hidden" name="student_id" value="<%= @student.id %>" >
 
   <div class="rounded_div float_left left_pane", style="width: 50%">
     <h5 class="section_head">Branches</h5>
     <hr>
-    <button class="toogle_checkboxes pull-right btn btn-default"> select/deselect all </button>
+    <button class="toogle_checkboxes pull-right btn btn-warning"> Select/Deselect all </button>
     <div class="checkbox_container">
       <% @branches.each do |branch| %>
         <label>
@@ -71,12 +108,5 @@
         el.checked = true;
       });
     }
-
-
   });
-
-
 </script>
-
-
-

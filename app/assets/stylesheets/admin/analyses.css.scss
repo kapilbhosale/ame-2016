@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .rounded_div {
   border: 2px solid #a1a1a1;
   padding: 10px 40px;
@@ -18,7 +17,6 @@
 .float_right {
   float: right;
 }
-
 
 .toogle-checkboxes {
 
@@ -46,6 +44,32 @@
 .section_head {
   text-align: center;
 }
+.number_input_wrap {
+  width: 100px;
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.ul_prop_val {
+  font-size: 15px;
+  list-style-type: none;
+  padding-left: 0;
+  .li_prop {
+    display: inline-block;
+    width: 150px;
+  }
+  .li_val {
+    padding-left: 15px;
+    &:before {
+      content: ':';
+      margin-right: 4px;
+    }
+  }
+  li {
+    margin-bottom: 8px;
+  }
+}
+
 @media print {
   .container,
   body {
