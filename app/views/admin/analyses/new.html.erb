@@ -17,20 +17,23 @@
 
   no of options above your rank
   <input type="number" name="greater_options" value="40" >
-<br>
+  <br>
   no of options below your rank
   <input type="number" name="lesser_options" value="60" >
-<br>
+  <br>
   <input type="hidden" name="student_id" value="<%= @student.id %>" >
 
-  <div class="rounded_div float_left", style="width: 40%">
-  <% @branches.each do |branch| %>
-    <label>
-      </label><input id="branch" name="branch[]" type="checkbox" value="<%= branch.branch_name %>" />
-      <%= branch.branch_name %>
-    </label>
-    <br>
-  <% end %>
+  <div class="rounded_div float_left left_pane", style="width: 50%">
+    <button class="toogle_checkboxes pull-right"> select/deselect all </button>
+    <div class="checkbox_container">
+      <% @branches.each do |branch| %>
+        <label>
+        </label><input id="branch" name="branch[]" type="checkbox" value="<%= branch.branch_name %>" />
+        <%= branch.branch_name %>
+        </label>
+        <br>
+      <% end %>
+    </div>
   </div>
 
   <div class="rounded_div float_right", style="width: 40%">
@@ -44,6 +47,31 @@
   </div>
 
 <% end %>
+
+<script type="text/javascript">
+  var toggle_button = document.querySelector('.toogle_checkboxes');
+  var all_checkboxes = document.querySelectorAll('.left_pane input[type="checkbox"]');
+
+  toggle_button.addEventListener('click', function(event){
+    var checked_elements =  document.querySelectorAll('.left_pane input[type="checkbox"]:checked').length;
+
+    event.preventDefault();
+
+    if(checked_elements === all_checkboxes.length){
+      Array.prototype.forEach.call(all_checkboxes, function(el, id){
+        el.checked = false;
+      });
+    } else {
+      Array.prototype.forEach.call(all_checkboxes, function(el, id){
+        el.checked = true;
+      });
+    }
+
+
+  });
+
+
+</script>
 
 
 

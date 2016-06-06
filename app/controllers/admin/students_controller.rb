@@ -26,20 +26,28 @@ class Admin::StudentsController < Admin::BaseController
       # create student
       student = Student.new
       student.email = student_email
-      student.password =  student_contact_no
-      student.created_by = @current_user.id
-      student.save!
+      generated_password = student_contact_no.length >= 8 ? student_contact_no : '1234567890'
+      student.password =  generated_password
+      student.created_by = current_admin.id
+      student.save
+
+      if student.errors.present?
+        flash[:alert] = student.errors.messages
+        redirect_to :back and return
+      end
 
       student_profile = student.create_profile(student_params)
       # create student profile
-      unless student_profile[:error].present?
+      unless student_profile.errors.present?
         flash[:notice] = "student added successfully."
-        redirect_to admin_root_path
+        redirect_to admin_root_path and return
       else
-        flash[:alert] = student_profile[:error]
+        flash[:alert] = student_profile.errors.messages
+        redirect_to :back and return
       end
     else
       flash[:alert] = "please enter valid email"
+      redirect_to :back and return
     end
   end
 
