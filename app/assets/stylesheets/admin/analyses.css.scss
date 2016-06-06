@@ -27,3 +27,18 @@
   width: 100%;
   clear: both;
 }
+
+@media print {
+  .container,
+  body {
+    margin: 0 !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+  table thead tr th {
+    font-size: 10px;
+  }
+  table tbody tr td {
+    font-size: 10px;
+  }
+}
