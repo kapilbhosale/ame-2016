@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602111236) do
+ActiveRecord::Schema.define(version: 20160606041418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,23 +27,27 @@ ActiveRecord::Schema.define(version: 20160602111236) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.string   "first_name",        null: false
+    t.integer  "user_id"
+    t.string   "first_name",                    null: false
     t.string   "father_name"
-    t.string   "surname",           null: false
-    t.string   "mother_name",       null: false
-    t.datetime "date_of_birth",     null: false
-    t.integer  "rank",              null: false
-    t.decimal  "composite_score",   null: false
-    t.string   "category",          null: false
+    t.string   "surname",                       null: false
+    t.string   "mother_name",                   null: false
+    t.datetime "date_of_birth",                 null: false
+    t.integer  "rank",                          null: false
+    t.decimal  "composite_score",               null: false
+    t.string   "category",                      null: false
     t.string   "home_university"
     t.string   "contact_no"
     t.string   "father_contact_no"
     t.string   "email"
     t.text     "address"
     t.string   "cet_exam_number"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "gender",            default: 0, null: false
   end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",        null: false
@@ -59,6 +63,7 @@ ActiveRecord::Schema.define(version: 20160602111236) do
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
     t.string   "type",                   default: "Student", null: false
+    t.integer  "created_by",             default: -1
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

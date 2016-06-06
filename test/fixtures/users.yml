@@ -16,6 +16,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  type                   :string           default("Student"), not null
+#  created_by             :integer          default("-1")
 #
 # Indexes
 #

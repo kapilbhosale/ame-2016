@@ -3,6 +3,7 @@
 # Table name: profiles
 #
 #  id                :integer          not null, primary key
+#  user_id           :integer
 #  first_name        :string           not null
 #  father_name       :string
 #  surname           :string           not null
@@ -19,6 +20,11 @@
 #  cet_exam_number   :string
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  gender            :integer          default("0"), not null
+#
+# Indexes
+#
+#  index_profiles_on_user_id  (user_id)
 #
 
 require 'test_helper'

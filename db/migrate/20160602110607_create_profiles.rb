@@ -1,6 +1,7 @@
 class CreateProfiles < ActiveRecord::Migration
   def change
     create_table :profiles do |t|
+      t.belongs_to  :user, index: true
       t.string  :first_name, null: false
       t.string  :father_name
       t.string  :surname, null: false
@@ -20,16 +21,3 @@ class CreateProfiles < ActiveRecord::Migration
     end
   end
 end
-
-
-# first_name, father_name, surname, mother_name,
-# date_of_birth,
-# rank
-# composite_score
-# category
-# home_university
-
-# contact_no
-# father_contact_no
-# address
-# email

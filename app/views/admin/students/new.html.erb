@@ -1,0 +1,52 @@
+<%= form_tag("/admin/students", method: :post) do %>
+  Student first name :
+  <input type="text", name="first_name" > <br>
+
+  father name :
+  <input type="text", name="father_name" > <br>
+
+  Surname :
+  <input type="text", name="surname" > <br>
+
+  Mother's name :
+  <input type="text", name="mother_name" > <br>
+
+  Gender : male
+  <input type = "radio" id = "gender" name = "gender"
+         value = "male" checked = "checked" />
+  female
+  <input type = "radio" id = "gender" name = "gender"
+         value = "female" /> <br>
+
+
+  Date of Birth :
+  <input type="text", name="date_of_birth" > <br>
+
+  Cet general Rank :
+  <input type="number", name="rank" > <br>
+
+  Composite score
+  <input type="number", name="composite_score" > <br>
+
+  Category :
+  <%= select_tag 'category', options_for_select(@categories) %> <br>
+
+  Student Contact no :
+  <input type="number", name="contact_no" > <br>
+
+  Parent Contact no :
+  <input type="number", name="father_contact_no" > <br>
+
+  Student email :
+  <input type="email", name="email" > <br>
+
+  Address :
+  <input type="text", name="address" > <br>
+
+  Cet Exam no :
+  <input type="text", name="cet_exam_number" > <br>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+<% end %>
+
+

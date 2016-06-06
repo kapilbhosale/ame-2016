@@ -8,6 +8,28 @@ Rails.application.routes.draw do
 
   devise_for :admins
   devise_for :students
+
+
+  namespace :admin do
+    devise_scope :admin do
+      root 'dashboards#index'
+      resource :dashboard, only: :index
+      resource :students
+      post '/students' => 'students#show'
+      post '/search_students' => 'students#show'
+
+      resource :analysis
+    end
+  end
+
+  namespace :students do
+    devise_scope :students do
+      root 'dashboards#index'
+      resource :dashboard, only: :index
+
+    end
+  end
+
   # , controllers: {
   #   sessions: 'student/sessions',
   #   registrations: 'student/registrations',
