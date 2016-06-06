@@ -10,7 +10,7 @@
 <p> Parent Contact no : <%= @student.profile.father_contact_no%> </p>
 
 
-<%= form_tag(admin_perform_analysis_path, method: :post) do %>
+<%= form_tag(admin_perform_analysis_path, method: :post, class: 'form_analysis clearfix') do %>
   <div style="float: right">
     <button type="submit" class="btn btn-primary"> Analyze </button>
   </div>
@@ -24,23 +24,28 @@
   <input type="hidden" name="student_id" value="<%= @student.id %>" >
 
   <div class="rounded_div float_left left_pane", style="width: 50%">
-    <button class="toogle_checkboxes pull-right"> select/deselect all </button>
+    <h5 class="section_head">Branches</h5>
+    <hr>
+    <button class="toogle_checkboxes pull-right btn btn-default"> select/deselect all </button>
     <div class="checkbox_container">
       <% @branches.each do |branch| %>
         <label>
-        </label><input id="branch" name="branch[]" type="checkbox" value="<%= branch.branch_name %>" />
-        <%= branch.branch_name %>
+          <input id="branch" name="branch[]" type="checkbox" value="<%= branch.branch_name %>" />
+          <%= branch.branch_name %>
         </label>
         <br>
       <% end %>
     </div>
   </div>
 
-  <div class="rounded_div float_right", style="width: 40%">
+  <div class="rounded_div float_right region_section right_pane", style="width: 40%">
+    <h5 class="section_head">Regions</h5>
+    <hr>
     <% @regions.each do |region| %>
       <label>
-      </label><input id="region" name="region[]" type="checkbox" value="<%= region %>" />
-      <%= region %>
+        <input id="region" name="region[]" type="checkbox" value="<%= region %>" />
+        <%= region %>
+      </label>
       </label>
       <br>
     <% end %>

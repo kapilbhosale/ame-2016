@@ -6,8 +6,9 @@
 .rounded_div {
   border: 2px solid #a1a1a1;
   padding: 10px 40px;
-  background: #dddddd;
+  background: rgba(236, 233, 233, 0.5);
   border-radius: 25px;
+  margin-top: 15px;
 }
 
 .float_left {
@@ -26,8 +27,25 @@
   display: block;
   width: 100%;
   clear: both;
+  label {
+    font-size: 17px;
+  }
+}
+.region_section {
+  label {
+    font-size: 17px;
+  }
+}
+.left_pane label {
+  font-weight: normal;
 }
 
+.form_analysis {
+  margin: 15px 0;
+}
+.section_head {
+  text-align: center;
+}
 @media print {
   .container,
   body {
