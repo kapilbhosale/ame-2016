@@ -32,7 +32,7 @@ class Admin::StudentsController < Admin::BaseController
       student.save
 
       if student.errors.present?
-        flash[:alert] = student.errors.messages
+        flash[:alert] = student.errors.full_messages.join(', ')
         redirect_to :back and return
       end
 
@@ -42,7 +42,7 @@ class Admin::StudentsController < Admin::BaseController
         flash[:notice] = "student added successfully."
         redirect_to admin_root_path and return
       else
-        flash[:alert] = student_profile.errors.messages
+        flash[:alert] = student_profile.errors.full_messages.join(', ')
         redirect_to :back and return
       end
     else
