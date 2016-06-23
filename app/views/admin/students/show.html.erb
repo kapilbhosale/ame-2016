@@ -11,6 +11,7 @@
   <table class="table table-hover table-bordered table-striped">
     <thead>
     <tr>
+      <th>id</th>
       <th>First name</th>
       <th>Fater's name</th>
       <th>Last name</th>
@@ -26,6 +27,7 @@
     <% @students.each do |student| %>
       <% next if student.profile.nil? %>
       <tr>
+        <td> <%= student.profile.id %></td>
         <td> <%= student.profile.first_name %></td>
         <td> <%= student.profile.father_name %></td>
         <td> <%= student.profile.surname %></td>
